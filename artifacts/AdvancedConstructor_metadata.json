@@ -74,7 +74,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"newvest.sol": "AdvancedConstructor"
+			"newmessage.sol": "AdvancedConstructor"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -88,12 +88,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"newvest.sol": {
-			"keccak256": "0x98d1b1c3fabfc5c6c568886e40ca0d9ca230cc28d2c59334a876c3fd6067baed",
+		"newmessage.sol": {
+			"keccak256": "0xf3e1f8e04fb596eda081e9622ca5f7811d8b889885b9dcf597b6067a91a7c0ab",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4a1237274be1920eb44e9a42c9051f6843c34df7ca6cb89416adb49d7b3dc49b",
-				"dweb:/ipfs/QmfKXrDGwCNsUTKsB2G8cwmehjug3EuUpe4g9ZDtQW2Hkb"
+				"bzz-raw://07abd39f894a4d1e89a274b8b2f1a9644a09403e12cfe0c333d46a21382a4c25",
+				"dweb:/ipfs/QmZ1yV6fpe2SNoK7qHGxN9C4sGzGU29Sk6eRitGDRT2UKo"
 			]
 		}
 	},
