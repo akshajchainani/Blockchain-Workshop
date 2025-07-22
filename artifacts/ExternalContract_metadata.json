@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "externalFunction",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"newcode.sol": "ExternalContract"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"newcode.sol": {
+			"keccak256": "0xecebb861e5ddeb3eb982e1e4bc49aaf95610b27e9c6046450d79040aa65281a1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://19bc8f7116b3f4ce0597953c783287e0579c4dddda60cbcacfd5d21f1e536e19",
+				"dweb:/ipfs/QmW3xybofeB7imQTx3JvC7xqZdrCBBsxRDTUKbmLzKu2KL"
+			]
+		}
+	},
+	"version": 1
+}

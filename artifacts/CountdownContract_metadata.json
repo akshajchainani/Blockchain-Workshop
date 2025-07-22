@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "n",
+						"type": "uint256"
+					}
+				],
+				"name": "countDown",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"countdown.sol": "CountdownContract"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"countdown.sol": {
+			"keccak256": "0x5012e1a94ed9b0927a1d526bc357ed7d4bb9d2c020c3d034685652e8e12be6b9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://777a89cb947cd765534e0c86ec1e955f66e30f2b770b85d2415bfcc4daff67aa",
+				"dweb:/ipfs/QmVwcYph6Ed6YFq6MQjTHTKoZcv2cxckBJUgyvxH1VxVdp"
+			]
+		}
+	},
+	"version": 1
+}
