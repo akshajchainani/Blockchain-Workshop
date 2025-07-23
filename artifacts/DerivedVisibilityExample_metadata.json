@@ -7,54 +7,67 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "getInternalVar",
+				"name": "callBaseInternalFunction",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "getInternalVarFromBase",
+				"name": "callInternalFunction",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "getPrivateVar",
+				"name": "callPrivateFunction",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "publicVar",
+				"name": "externalFunction",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "publicFunction",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -71,7 +84,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contractVisibility22.sol": "DerivedVisibilityExample"
+			"visibilityexample.sol": "DerivedVisibilityExample"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -85,12 +98,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contractVisibility22.sol": {
-			"keccak256": "0x33049aac341dee5d44d0a0c79df5d404e8908982bfd1991b54301d569bafc7df",
+		"visibilityexample.sol": {
+			"keccak256": "0xdc24ac4238623d6cb19cc91d1f218f4f18b4b0110d945d27c2752f2bfb35a608",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://313d4b67826575b0b8b75a0b601fc38926c1326262ede3dd6f657b5c7319ef79",
-				"dweb:/ipfs/QmNVBTKgeMmYMFzsbY5ZhcKGQBos2wJPMDCth5QJJXrzGT"
+				"bzz-raw://a526df40d3e8d0165124ae3488de926ac25dc6d44244bdfb9f46bdc7373caabf",
+				"dweb:/ipfs/QmYV8PdV4CDDe1GhE2Jay3WPHuJrMgozoBrZM8udmjNZjL"
 			]
 		}
 	},
