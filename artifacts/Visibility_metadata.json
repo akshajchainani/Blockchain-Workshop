@@ -7,15 +7,20 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "num4",
-				"outputs": [
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "_result",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"name": "setResult",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -32,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contractVisibility21.sol": "Visibility"
+			"functionModifier.sol": "Visibility"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -46,12 +51,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contractVisibility21.sol": {
-			"keccak256": "0x359c52f1011e598fa5b3cd82f2dc048d323bbbbdb2c5d2c49da75f5037d1bfc3",
+		"functionModifier.sol": {
+			"keccak256": "0x7f643b1f519c082ca8f0f5b4201eec57f7b49d71146c30f3f1da48bb162f2669",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://da5f8134fbd7005dfa0ce5ca16f40163b284e82d1c47f145c6418309ba8b6693",
-				"dweb:/ipfs/QmXmaHojoP6RWBm3yXAaU6ncuY6adcMFZf1PLtYS44AX2j"
+				"bzz-raw://77d78e6f2a681aa99303bf700700a3b71a0730e3ffd2b6f96d8741e5751c6b4b",
+				"dweb:/ipfs/QmUSvsspuPqrbwGYpY2piWekQjKhDWAd3mPqB1QBJBBULc"
 			]
 		}
 	},
