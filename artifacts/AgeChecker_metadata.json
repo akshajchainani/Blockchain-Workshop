@@ -38,7 +38,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"agecheck.sol": "AgeChecker"
+			"newtestfile.sol": "AgeChecker"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -52,12 +52,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"agecheck.sol": {
-			"keccak256": "0x4714f86927f6fc1126fcdb87543f733dd4ad18ba61e8650f389f0a23bcb53183",
+		"newtestfile.sol": {
+			"keccak256": "0x95b939f124e272954ae8a8e61c9bb8d7eed963adeafbe25c273a87b41ea7dc98",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cba6f224bc2137d2c365dce645c73c2c1c1b289871c132c76ea23c3b6ff09ac5",
-				"dweb:/ipfs/QmRbV1HxFD48pVKCPG3fBjfYxUYMtXwec7ZQ1U2wZPQykC"
+				"bzz-raw://cb2c671bfd0627766efb6ae6f59a5689d57d8666815f313ff95b375c7bc67a69",
+				"dweb:/ipfs/QmULipY9C6fnQuHRk9BUV7NLAXAHEox7g4gXfF8Q9og8fr"
 			]
 		}
 	},
