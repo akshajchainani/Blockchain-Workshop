@@ -1,0 +1,125 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "a",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "b",
+						"type": "string"
+					}
+				],
+				"name": "concatenate",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "str",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "delimiter",
+						"type": "string"
+					}
+				],
+				"name": "splitString",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "str",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "substring",
+						"type": "string"
+					}
+				],
+				"name": "substringExists",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"substring.sol": "StringOperations"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"github.com/Arachnid/solidity-stringutils/src/strings.sol": {
+			"keccak256": "0x42cad11a7033f2fe05dd68611d2304407a620ac985b91edf29d5868cfe196223",
+			"urls": [
+				"bzz-raw://3cbc2333234e1f00eab5e57c4bcaf5115661e5e066a17c70af587a0a96f24669",
+				"dweb:/ipfs/QmPHvStqcvZL46LW5N2ExTwAaqNhRCcmAX66aR6oE1WDar"
+			]
+		},
+		"substring.sol": {
+			"keccak256": "0x379f9e4353b74de2e5e0e322ad8005c8b8ed7cebfd8acc24d39a5c3793941baa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://21b0f7fc999cc46310ac9299b4f603d0eaf0b78ecc6ec02cf5699cd225660131",
+				"dweb:/ipfs/Qmbni57EzyGi99gswLPEv9sMbVuLqo69RcDKYzBAyC7v9Z"
+			]
+		}
+	},
+	"version": 1
+}
