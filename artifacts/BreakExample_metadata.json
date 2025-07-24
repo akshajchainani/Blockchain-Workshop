@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "arr",
+						"type": "uint256[]"
+					}
+				],
+				"name": "findFirstEven",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"oddeven.sol": "BreakExample"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"oddeven.sol": {
+			"keccak256": "0x7561ec7c77958c19b616600259fd4a9cde18de7755f7848948165c614ef242c8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://00af15e16216c23eaaf46fbe9ad7b0b638fdb3622dd3e9f6e27f0be9e234d8e9",
+				"dweb:/ipfs/QmejuGTQawd1U9guyYpoz5mgjzwYfePUYTxsd5mkkZMYxe"
+			]
+		}
+	},
+	"version": 1
+}

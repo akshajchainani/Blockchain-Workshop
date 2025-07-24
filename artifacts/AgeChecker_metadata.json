@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "age",
+						"type": "uint256"
+					}
+				],
+				"name": "checkAge",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"newtestfile.sol": "AgeChecker"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"newtestfile.sol": {
+			"keccak256": "0x95b939f124e272954ae8a8e61c9bb8d7eed963adeafbe25c273a87b41ea7dc98",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cb2c671bfd0627766efb6ae6f59a5689d57d8666815f313ff95b375c7bc67a69",
+				"dweb:/ipfs/QmULipY9C6fnQuHRk9BUV7NLAXAHEox7g4gXfF8Q9og8fr"
+			]
+		}
+	},
+	"version": 1
+}

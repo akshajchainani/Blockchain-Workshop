@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "inputArray",
+						"type": "uint256[]"
+					}
+				],
+				"name": "processArray",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tempstorage.sol": "MemoryExample"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tempstorage.sol": {
+			"keccak256": "0x632f81511df3c79ecc3e5ea6a67d5e3dd3dcd117d8ed8ca1465e3fb39953f213",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b2a3a26f36929598d264f01cfac16b1fc6d9f11ce9e80f63140868bc92b6c539",
+				"dweb:/ipfs/QmWstXv8cPokXTXvbDkhP7obm8PDHoghikuTYbPaN7qM8P"
+			]
+		}
+	},
+	"version": 1
+}
