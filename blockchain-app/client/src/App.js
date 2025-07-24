@@ -1,172 +1,204 @@
 import React, { useEffect, useState } from 'react';
 import { getWeb3, getCrud } from './utils.js';
+import './App.css';
+
 function App() {
+  const [web3, setWeb3] = useState(undefined);
+  const [accounts, setAccounts] = useState(undefined);
+  const [crud, setCrud] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('create');
+  const [notifications, setNotifications] = useState([]);
 
-const [web3, setWeb3] = useState(undefined);
-const [accounts, setAccounts] = useState(undefined);
-const [crud, setCrud ] = useState(undefined);
+  useEffect(() => {
+    const init = async () => {
+      try {
+        const web3 = await getWeb3();
+        const accounts = await web3.eth.getAccounts();
+        const crud = await getCrud(web3);
 
-const [messageCreateUser, setMessageCreateUser] = useState(undefined);
-const [messageReadUser, setMessageReadUser] = useState(undefined);
-const [messageUpdateUser, setMessageUpdateUser] = useState(undefined);
-const [messageDeleteUser, setMessageDeleteUser] = useState(undefined);
+        setWeb3(web3);
+        setAccounts(accounts);
+        setCrud(crud);
+      } catch (error) {
+        addNotification('error', 'Failed to initialize Web3 and contract');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    init();
+  }, []);
 
-useEffect(() =>{
-   const init = async() =>{
-    const web3 =await getWeb3();
-    const accounts = await web3.eth.getAccounts();
-    const crud = await getCrud(web3);
+  const addNotification = (type, message) => {
+    const id = Date.now();
+    const newNotification = { id, type, message };
+    setNotifications(prev => [...prev, newNotification]);
+    
+    setTimeout(() => {
+      setNotifications(prev => prev.filter(n => n.id !== id));
+    }, 5000);
+  };
 
-    setWeb3(web3);
-    setAccounts(accounts);
-    setCrud(crud);
-   };
-   init();
-}, []);
+  const createUser = async (e) => {
+    e.preventDefault();
+    const name = e.target.elements[0].value;
 
-async function resetMessages(){
-   setMessageCreateUser('');
-   setMessageReadUser('');
-   setMessageUpdateUser('');
-   setMessageDeleteUser('');
-}
+    try {
+      await crud.methods.create(name).send({ from: accounts[0], gas: 200000 });
+      addNotification('success', `User "${name}" created successfully`);
+      e.target.reset();
+    } catch (err) {
+      addNotification('error', `Failed to create user "${name}"`);
+    }
+  };
 
-async function createUser(e) {
-   e.preventDefault();
-   resetMessages();
+  const readUser = async (e) => {
+    e.preventDefault();
+    const id = e.target.elements[0].value;
 
-   const name = e.target.elements[0].value;
-   //crud.methods.create(name).send({from: accounts[0]})
-   crud.methods.create(name).send({ from: accounts[0], gas: 200000 })
-   .then(result => {
-    const message = `New user "${name}" successfully created`;
-    setMessageCreateUser(message);
-    console.log("Success"); //delete this line in the end
-   })
-   .catch(_e => {
-    const message = `Ooops... there was an error while trying to create a new user with name "${name}"`;
-    console.log(_e);
-    setMessageCreateUser(message);
-   });
-}
+    try {
+      const result = await crud.methods.read(id).call();
+      if (result[0] === '0') {
+        addNotification('warning', `User with ID ${id} not found`);
+      } else {
+        addNotification('info', `User found: ID ${result[0]} - Name: ${result[1]}`);
+      }
+    } catch (err) {
+      addNotification('error', `Failed to read user with ID ${id}`);
+    }
+  };
 
+  const updateUser = async (e) => {
+    e.preventDefault();
+    const id = e.target.elements[0].value;
+    const name = e.target.elements[1].value;
 
-async function readUser(e) {
-   e.preventDefault();
-   resetMessages();
+    try {
+      await crud.methods.update(id, name).send({ from: accounts[0] });
+      addNotification('success', `Updated user ${id} to "${name}"`);
+      e.target.reset();
+    } catch (err) {
+      addNotification('error', `Failed to update user ${id}`);
+    }
+  };
 
-   const id = e.target.elements[0].value;
-   crud.methods.read(id).call()
-   .then(result =>{
-    const message = `Id: ${result[0]} Name: ${result[1]}`;
-    setMessageReadUser(message);
-    console.log("Success"); //delete this line in the end
-   })
-   .catch(_e=>{
-    const message = `Ooops... there was an error while trying to read user with id ${id}`;
-    setMessageReadUser(message);
-   })
-}
+  const deleteUser = async (e) => {
+    e.preventDefault();
+    const id = e.target.elements[0].value;
 
-async function updateUser(e){
-   e.preventDefault();
-   resetMessages();
+    try {
+      await crud.methods.destroy(id).send({ from: accounts[0] });
+      addNotification('success', `Deleted user ${id}`);
+      e.target.reset();
+    } catch (err) {
+      addNotification('error', `Failed to delete user ${id}`);
+    }
+  };
 
-   const id = e.target.elements[0].value;
-   const name = e.target.elements[1].value;
-   crud.methods.update(id, name).send({from: accounts[0]})
-   .then(result => {
-    const message = `Changed name of user ${id} to ${name}`;
-    setMessageUpdateUser(message);
-    console.log("Success"); //delete this line in the end
-   })
-   .catch(_e => {
-    const message = `Ooops... there was an error while trying to update name of user ${id} to ${name}`;
-    setMessageUpdateUser(message);
-   });
-}
+  if (isLoading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Loading Web3, accounts, and contract...</p>
+      </div>
+    );
+  }
 
-async function deleteUser(e){
-   e.preventDefault();
-   resetMessages();
+  return (
+    <div className="app-container">
+      <div className="app-card">
+        <header>
+          <h1>CRUD DApp</h1>
+          <p className="wallet-address">Connected: {accounts[0]}</p>
+        </header>
 
-   const id = e.target.elements[0].value;
-   crud.methods.destroy(id).send({from: accounts[0]})
-   .then(result =>{
-    const message = `Deleted user ${id}`;
-    setMessageDeleteUser(message);
-   })
-   .catch(_e=>{
-    const message = `Ooops... there was an error while trying to delete user ${id}`;
-    setMessageDeleteUser(message);
-   })
-}
+        <div className="tabs">
+          <button 
+            className={activeTab === 'create' ? 'active' : ''} 
+            onClick={() => setActiveTab('create')}
+          >
+            Create
+          </button>
+          <button 
+            className={activeTab === 'read' ? 'active' : ''} 
+            onClick={() => setActiveTab('read')}
+          >
+            Read
+          </button>
+          <button 
+            className={activeTab === 'update' ? 'active' : ''} 
+            onClick={() => setActiveTab('update')}
+          >
+            Update
+          </button>
+          <button 
+            className={activeTab === 'delete' ? 'active' : ''} 
+            onClick={() => setActiveTab('delete')}
+          >
+            Delete
+          </button>
+        </div>
 
-if (!web3) {
-   return <div>Loading...</div>;
-}
+        <div className="tab-content">
+          {activeTab === 'create' && (
+            <form onSubmit={createUser} className="form">
+              <h2>Create New User</h2>
+              <div className="form-group">
+                <label>Name</label>
+                <input type="text" required placeholder="Enter user name" />
+              </div>
+              <button type="submit" className="btn-primary">Create User</button>
+            </form>
+          )}
 
-return (
+          {activeTab === 'read' && (
+            <form onSubmit={readUser} className="form">
+              <h2>Find User</h2>
+              <div className="form-group">
+                <label>User ID</label>
+                <input type="number" required placeholder="Enter user ID" />
+              </div>
+              <button type="submit" className="btn-primary">Find User</button>
+            </form>
+          )}
 
+          {activeTab === 'update' && (
+            <form onSubmit={updateUser} className="form">
+              <h2>Update User</h2>
+              <div className="form-group">
+                <label>User ID</label>
+                <input type="number" required placeholder="Enter user ID" />
+              </div>
+              <div className="form-group">
+                <label>New Name</label>
+                <input type="text" required placeholder="Enter new name" />
+              </div>
+              <button type="submit" className="btn-primary">Update User</button>
+            </form>
+          )}
 
-    <div class="container">
-    Hello!!
-    <div class="row">
-       <div class="col-sm-12">
+          {activeTab === 'delete' && (
+            <form onSubmit={deleteUser} className="form">
+              <h2>Delete User</h2>
+              <div className="form-group">
+                <label>User ID</label>
+                <input type="number" required placeholder="Enter user ID" />
+              </div>
+              <button type="submit" className="btn-danger">Delete User</button>
+            </form>
+          )}
+        </div>
 
-        <h1>Crud Dapp</h1>
-        <form id="create" onSubmit={e => createUser(e)}>
-           <h2>Create user</h2>
-           <div class="form-group">
-            <label for="name">Name</label>
-            <input id="name" type="text" class="form-control"></input>
-           </div>
-           <button type="submit" class="btn btn-primary">Submit</button>
-           <p id="create-result">{messageCreateUser}</p>
-        </form>
-
-        <hr/>
-        <form id="read" onSubmit={e => readUser(e)}>
-           <h2>Read user</h2>
-           <div class="form-group">
-            <label for="read-id">Id</label>
-            <input id="read-id" type="number" class="form-control"></input>
-           </div>
-           <button type="submit" class="btn btn-primary">Submit</button>
-           <p id="read-result">{messageReadUser}</p>
-        </form>
-
-        <hr/>
-
-        <form id="edit" onSubmit={e=> updateUser(e)}>
-           <h2>Edit user</h2>
-           <div class="form-group">
-            <label for="edit-id">Id</label>
-            <input id="edit-id" type="number" class="form-control"></input>
-            <label for="edit-name">Name</label>
-            <input id="edit-name" type="text" class="form-control"></input>
-           </div>
-           <button type="submit" class="btn btn-primary">Submit</button>
-           <p id="edit-result">{messageUpdateUser}</p>
-        </form>
-
-        <hr/>
-
-        <form id="delete" onSubmit = {e=> deleteUser(e)}>
-           <h2>Delete user</h2>
-           <div class="form-group">
-            <label for="delete-id">Id</label>
-            <input id="delete-id" type="number" class="form-control"></input>
-           </div>
-           <button type="submit" class="btn btn-primary">Submit</button>
-           <p id="delete-result">{messageDeleteUser}</p>
-        </form>
-
-       </div>
+        <div className="notifications">
+          {notifications.map((notification) => (
+            <div key={notification.id} className={`notification ${notification.type}`}>
+              {notification.message}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-   </div>
-
-);
+  );
 }
 
 export default App;
